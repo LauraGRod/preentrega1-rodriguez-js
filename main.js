@@ -26,13 +26,17 @@ const elegirPrenda = () => {
               break;
             default:
               alert('Ingrese una prenda disponible');
+
+          while (prenda !== 'TAPADO' && prenda !== 'JEAN' && prenda !== 'SWEATER') {
+            prenda = prompt('Ingrese una prenda disponible: tapado, jean o sweater.').toUpperCase();
           }
+        }
 
-          console.log(prenda)
+        console.log(prenda)
+        
+        talle = prompt('¿En qué talle: S, M o L?').toUpperCase();
 
-          talle = prompt('¿En qué talle: S, M o L?').toUpperCase();
-
-          switch (talle) {
+        switch (talle) {
             case 'S':
               break;
             case 'M':
@@ -41,13 +45,17 @@ const elegirPrenda = () => {
               break;
             default:
               alert('Ingrese un talle disponible');
+        
+          while (talle !== 'S' && talle !== 'M' && talle !== 'L') {
+            talle = prompt('Ingrese un talle disponible: S, M o L.').toUpperCase();
           }
+        }
+          
+        console.log(talle)
 
-          console.log(talle)
+        color = prompt('¿De qué color: blanco, azul o beige?').toUpperCase();
 
-          color = prompt('¿De qué color: blanco, azul o beige?').toUpperCase();
-
-          switch (color) {
+        switch (color) {
             case 'BLANCO':
               break;
             case 'AZUL':
@@ -56,11 +64,20 @@ const elegirPrenda = () => {
               break;
             default:
               alert('Ingrese un color disponible');
+          
+          while (color !== 'BLANCO' && color !== 'AZUL' && color !== 'BEIGE') {
+            color = prompt('Ingrese un color disponible: blanco, azul o beige.').toUpperCase();
           }
+        }
 
         console.log(color)
         
         cantidad = Number(prompt('¿Cuántos desea comprar?'));
+
+        while (isNaN(cantidad)) {
+          alert ('Ingrese un número correcto')
+          cantidad = Number(prompt('¿Cuántos desea comprar?'));
+        }
 
         subtotal += precio * cantidad;  
         console.log(subtotal)
@@ -79,7 +96,7 @@ const aplicarDescuento = (subtotal) => {
 
     if (metodoPago === 'EFECTIVO') {
         return subtotal * descuento;
-    } else if (metodoPago = 'TARJETA') { 
+    } else if (metodoPago === 'TARJETA') { 
         return subtotal;
     } else {
         alert ('Seleccione un método de pago válido')
